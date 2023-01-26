@@ -4,10 +4,12 @@
 
 @section('content')
 <div class="container">
-    <h1>
-    {{-- <a href="tutorial/{{ $tutorial->id}}">{{ $tutorial->title}}</a> --}}
-    </h1>
+    @foreach($tutorial as $item)
+    <div class="list-group">
+    <a class="btn btn-primary mb-3 rounded-pill" href="{{route('show-tutorial', $item->id)}}">
+        {{$item->title}}</a>
+    </div>
+@endforeach
 </div>
-
 @endsection
 {{-- @endforelse --}}

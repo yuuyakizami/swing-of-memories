@@ -19,6 +19,7 @@ class CreateTutorialsTable extends Migration
             $table->text('title');
             $table->text('video')->nullable();
             $table->text('title_description');
+            $table->text('title_lesson')->nullable();
             $table->timestamp('published_at')->nullable();
         });
     }

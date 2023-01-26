@@ -9,7 +9,7 @@
     <script src="{{ asset(mix('/js/app.js'))}}" defer></script>
     <style>
         body {
-            background-color: antiquewhite;
+            background-color: whitesmoke;
         }
     </style>
 </head>
@@ -23,13 +23,14 @@
             <li class="nav-item col-auto"><a class="nav-link" href="{{ route('message.create')}}" role="button">Message</a></li>
             <li class="nav-item col-auto"><a class="nav-link" href="{{ route('home.about')}}" role="button">About</a></li>
             @guest
+            <li class="nav-item col-auto"><a class="nav-link" href="{{ route('index-tutorial')}}">Show Tutorials</a></li>
+            <li class="nav-item col-auto"><a class="nav-link" href="{{ route('create-tutorial')}}">Create Tutorial</a></li>
             <li class="nav-item col-auto"><a class="nav-link" href="{{ route('register')}}" role="button">Register</a></li>
             <li class="nav-item col-auto"><a class="nav-link" href="{{ route('login')}}" role="button">Login</a></li>
-            @else
              {{-- Tutorial --}}
+             {{-- @auth() --}}
+             @else
              @auth()
-             <li class="nav-item col-auto"><a class="nav-link" href="{{ route('tutorial.index')}}">Show Tutorials</a></li>
-             <li class="nav-item col-auto"><a class="nav-link" href="{{ route('tutorial.create')}}">Create Tutorial</a></li>
              <li class="nav-item col-auto"><a class="nav-link href="{{ route('logout')}} onclick="event.preventDefault();document.getElementById('logout-form').submit();" role="button">Logout</a></li>
              <form id="logout-form" action="{{ route('logout')}}" method="post" style="display: none">@csrf</form>
              @endauth
